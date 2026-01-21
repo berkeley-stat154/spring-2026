@@ -862,7 +862,7 @@
     "href": "index.html#materials",
     "title": "Statistics 154/254: Statistical Machine Learning",
     "section": "Materials",
-    "text": "Materials\nThe course will be based largely on a subset of the following texts:\n\nPatterns, predictions, and actions: A story about machine learning Hardt, Recht\nESL: The Elements of Statistical Learning Hastie, Tibshirani, Friedman\nISL: An Introduction to Statistical Learning James, Witten, Hastie, Tibshirani\n\nLeture notes and additional reading will supplement these texts as necessary.\nSome other good sources of reading material are:\n\nUnderstanding Machine Learning: From Theory to Algorithms Shalev-Shwartz, Ben-David\nProbabilistic Machine Learning: An Introduction Murphy",
+    "text": "Materials\nThe course will be based largely on a subset of the following texts:\n\nPatterns, predictions, and actions: A story about machine learning Hardt, Recht\nESL: The Elements of Statistical Learning Hastie, Tibshirani, Friedman\nISL: An Introduction to Statistical Learning James, Witten, Hastie, Tibshirani\nLTFP: Learning Theory from First Principles F. Bach\n\nLeture notes and additional reading will supplement these texts as necessary.\nSome other good sources of reading material are:\n\nUnderstanding Machine Learning: From Theory to Algorithms Shalev-Shwartz, Ben-David\nProbabilistic Machine Learning: An Introduction Murphy",
     "crumbs": [
       "Home"
     ]
@@ -872,7 +872,7 @@
     "href": "index.html#schedule",
     "title": "Statistics 154/254: Statistical Machine Learning",
     "section": "Schedule",
-    "text": "Schedule\nLectures will be held Jan 21st, 2026 – May 1st, 2026 from 11am – 12pm in Physics 4.\nLabs will be held on Fridays from 11:00am – 1:00pm and 3:00pm – 5:00pm in Evans 340.\nHere is a link to the official course catalog entry.\nThe tentative week-by-week course calendar is as follows.  The following schedule is aspirational and subject to change as we go.\n\nCalendar (tentative)\n\n\n\n\n\n\n\n\n\nDate\nDay\nNote\nTopic\nAssignment\n\n\n\n\nJan 21\nWednesday\nLecture\nCourse policies\n\n\n\nJan 23\nFriday\nLecture\nUnit 1",
+    "text": "Schedule\nLectures will be held Jan 21st, 2026 – May 1st, 2026 from 11am – 12pm in Physics 4.\nLabs will be held on Mondays: - Josh: Sec 101 from 1:00pm to 3:00pm and Sec 102 from 3:00pm to 5:00pm in Evans 334. - Lucas: Sec 103 from 5:00pm to 7:00pm in Evans 334 and Sec 104 from 12pm to 2pm in Evans 340.\nHere is a link to the official course catalog entry.\nThe tentative week-by-week course calendar is as follows.  The following schedule is aspirational and subject to change as we go.\n\nCalendar (tentative)\n\n\n\n\n\n\n\n\n\nDate\nDay\nNote\nTopic\nAssignment\n\n\n\n\nJan 21\nWednesday\nLecture\nCourse policies\n\n\n\nJan 23\nFriday\nLecture\nUnit 1",
     "crumbs": [
       "Home"
     ]
