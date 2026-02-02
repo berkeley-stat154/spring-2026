@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -197,7 +177,7 @@ window.Quarto = {
 </section>
 <section id="reading" class="level1">
 <h1>Reading</h1>
-<p>I will be taking readings from <span class="citation" data-cites="scholkopf:2002:learningwithkernels">Schölkopf and Smola (<a href="#ref-scholkopf:2002:learningwithkernels" role="doc-biblioref">2002</a>)</span> and <span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span>, both of which are available digitally from the UC Berkeley library website. I’ll also use <span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> Chapter 12.</p>
+<p>I will be taking readings from <span class="citation" data-cites="scholkopf:2002:learningwithkernels">@scholkopf:2002:learningwithkernels</span> and <span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span>, both of which are available digitally from the UC Berkeley library website. I’ll also use <span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> Chapter 12.</p>
 </section>
 <section id="roadmap" class="level1">
 <h1>Roadmap</h1>
@@ -211,7 +191,7 @@ window.Quarto = {
 </section>
 <section id="some-common-kernels" class="level1">
 <h1>Some common kernels</h1>
-<p>See Table 4.1 (and in fact all of chapter 4) of <span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span>. Some kernels to make sure you’re aware of:</p>
+<p>See Table 4.1 (and in fact all of chapter 4) of <span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span>. Some kernels to make sure you’re aware of:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathcal{K}_{Poly}(\boldsymbol{z}, \boldsymbol{z}') ={}&amp; (C + \boldsymbol{z}^\intercal\boldsymbol{z}')^K &amp; \textrm{Polynomial kernel} \\
@@ -224,7 +204,7 @@ window.Quarto = {
 \end{aligned}
 \]</span></p>
 <p>In the Matern kernel, <span class="math inline">\(B_\nu\)</span> is the modified Bessel function.</p>
-<p>Another nice aspect of kernels is that you can define kernels for objects that might not have an obvious vector space representation. Consider the “string kernel” (<span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span> 4.4.1) on “sentences” <span class="math inline">\(s\)</span> which are ordered lists of “words” from a finite vocabulary <span class="math inline">\(\mathcal{V}\)</span>. Let <span class="math inline">\(|v|\)</span> denote the length of word <span class="math inline">\(v \in \mathcal{V}\)</span>, e.g., the number of letters. We can define a kernel</p>
+<p>Another nice aspect of kernels is that you can define kernels for objects that might not have an obvious vector space representation. Consider the “string kernel” (<span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span> 4.4.1) on “sentences” <span class="math inline">\(s\)</span> which are ordered lists of “words” from a finite vocabulary <span class="math inline">\(\mathcal{V}\)</span>. Let <span class="math inline">\(|v|\)</span> denote the length of word <span class="math inline">\(v \in \mathcal{V}\)</span>, e.g., the number of letters. We can define a kernel</p>
 <p><span class="math display">\[
 \mathcal{K}_{String}(s, s') = \sum_{v \in \mathcal{V}}
     \lambda^{|v|} (\textrm{\# of times $v$ occurs in $s$}) \times (\textrm{\# of times $v$ occurs in $s'$}).
@@ -448,23 +428,12 @@ f(z; \beta) = \sum_{\omega} \beta_\omega (\cos(\omega z) + \sin(\omega z))
 </section>
 </section>
 <section id="references" class="level1">
-
-
+<h1>References</h1>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-esl:2009:hastie" class="csl-entry" role="listitem">
-Hastie, T., R. Tibshirani, and J. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference and Prediction</em>. 2nd ed. Springer.
-</div>
-<div id="ref-rasmussen:2006:gpml" class="csl-entry" role="listitem">
-Rasmussen, C., and C. Williams. 2006. <em>Gaussian Processes for Machine Learning</em>. Vol. 2. 3. MIT press Cambridge, MA.
-</div>
-<div id="ref-scholkopf:2002:learningwithkernels" class="csl-entry" role="listitem">
-Schölkopf, B., and A. Smola. 2002. <em>Learning with Kernels: <span>Support</span> Vector Machines, Regularization, Optimization, and Beyond</em>. MIT press.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -192,7 +172,7 @@ window.Quarto = {
 </section>
 <section id="reading" class="level1">
 <h1>Reading</h1>
-<p>I will be taking readings from <span class="citation" data-cites="scholkopf:2002:learningwithkernels">Schölkopf and Smola (<a href="#ref-scholkopf:2002:learningwithkernels" role="doc-biblioref">2002</a>)</span> and <span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span>, both of which are available digitally from the UC Berkeley library website. I’ll also use <span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> Chapter 12.</p>
+<p>I will be taking readings from <span class="citation" data-cites="scholkopf:2002:learningwithkernels">@scholkopf:2002:learningwithkernels</span> and <span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span>, both of which are available digitally from the UC Berkeley library website. I’ll also use <span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> Chapter 12.</p>
 <!--
 The primary reading is Chapter 2.1-2.3 of @scholkopf:2002:learningwithkernels,
 which is available online through the [UC library website](https://direct.mit.edu/books/monograph/1821/Learning-with-KernelsSupport-Vector-Machines).
@@ -224,13 +204,13 @@ z_{rm} = \mathrm{I}\left(\boldsymbol{r}_{r} \in \Delta_m\right)
 \]</span></p>
 <p>Even though <span class="math inline">\(\boldsymbol{X}\)</span> is only rank <span class="math inline">\(N &lt; P\)</span>, the inverse is defined due to the ridge correction. Note each term of the <span class="math inline">\(N \times N\)</span> matrix is an <span class="math inline">\(P\)</span>–dimensional dot product, so this can be quite expensive to compute because of the size of the feature space.</p>
 <p>Let’s learn a trick to avoid this heavy computation. This trick will in fact allow us to do regression tractably in <em>infinite–dimensional feature spaces</em>, and will lead to a different interpretation of linear regression that can help explain how interpolating estimators might still generalize.</p>
-<p>I’ll use a linear algebra trick that Wikipedia calls the “push–through identity” (<span class="citation" data-cites="wikipedia:2024:woodbury">Wikipedia contributors (<a href="#ref-wikipedia:2024:woodbury" role="doc-biblioref">2024</a>)</span>). Suppose <span class="math inline">\(\Um\)</span> is <span class="math inline">\(N\times P\)</span> and <span class="math inline">\(\boldsymbol{V}\)</span> is <span class="math inline">\(P \times N\)</span>, and both <span class="math inline">\(\Um \Vm + {\boldsymbol{I}_{N}}\)</span> and <span class="math inline">\(\Vm\Um + {\boldsymbol{I}_{P}}\)</span> are invertible. Then</p>
+<p>I’ll use a linear algebra trick that Wikipedia calls the “push–through identity” (<span class="citation" data-cites="wikipedia:2024:woodbury">@wikipedia:2024:woodbury</span>). Suppose <span class="math inline">\(\Um\)</span> is <span class="math inline">\(N\times P\)</span> and <span class="math inline">\(\boldsymbol{V}\)</span> is <span class="math inline">\(P \times N\)</span>, and both <span class="math inline">\(\Um \Vm + {\boldsymbol{I}_{N}}\)</span> and <span class="math inline">\(\Vm\Um + {\boldsymbol{I}_{P}}\)</span> are invertible. Then</p>
 <p><span class="math display">\[
 (\Um \Vm + {\boldsymbol{I}_{N}}) \Um = \Um (\Vm \Um + {\boldsymbol{I}_{P}})
 \quad\Leftrightarrow\quad
 \Um (\Vm \Um + {\boldsymbol{I}_{P}})^{-1} = (\Um \Vm + {\boldsymbol{I}_{N}})^{-1}  \Um.
 \]</span></p>
-<p>The proof is simple, and it appears to allow you to “push” a non-square matrix inside an inverse, and pop itself out on the other side, changing the dimension of the inverse. (This can be used in part to derive the Woodbury formula, which is why it appears in <span class="citation" data-cites="wikipedia:2024:woodbury">Wikipedia contributors (<a href="#ref-wikipedia:2024:woodbury" role="doc-biblioref">2024</a>)</span>).</p>
+<p>The proof is simple, and it appears to allow you to “push” a non-square matrix inside an inverse, and pop itself out on the other side, changing the dimension of the inverse. (This can be used in part to derive the Woodbury formula, which is why it appears in <span class="citation" data-cites="wikipedia:2024:woodbury">@wikipedia:2024:woodbury</span>).</p>
 <p>Applying the push–through identity to the ridge formula (see homework),</p>
 <p><span class="math display">\[
 \hat{\boldsymbol{\beta}}_{L2} := \boldsymbol{X}^\intercal(\boldsymbol{X}\boldsymbol{X}^\intercal+ \lambda {\boldsymbol{I}_{N}})^{-1} \boldsymbol{Y}.
@@ -495,26 +475,12 @@ careful in the coming lectures.
 <p>But that may be the wrong question. One might instead ask: why start with a featurization at all? Why not start with a computationally efficient kernel, and simply replace the dot product with that kernel? What kinds of kernel functions can you use? What is the implicit featurization for a kernel? And are there other algorithms other than ridge that admit this trick? These are the questions we’ll answer in the coming unit.</p>
 </section>
 <section id="references" class="level1">
-
-
+<h1>References</h1>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-esl:2009:hastie" class="csl-entry" role="listitem">
-Hastie, T., R. Tibshirani, and J. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference and Prediction</em>. 2nd ed. Springer.
-</div>
-<div id="ref-rasmussen:2006:gpml" class="csl-entry" role="listitem">
-Rasmussen, C., and C. Williams. 2006. <em>Gaussian Processes for Machine Learning</em>. Vol. 2. 3. MIT press Cambridge, MA.
-</div>
-<div id="ref-scholkopf:2002:learningwithkernels" class="csl-entry" role="listitem">
-Schölkopf, B., and A. Smola. 2002. <em>Learning with Kernels: <span>Support</span> Vector Machines, Regularization, Optimization, and Beyond</em>. MIT press.
-</div>
-<div id="ref-wikipedia:2024:woodbury" class="csl-entry" role="listitem">
-Wikipedia contributors. 2024. <span>“Woodbury Matrix Identity — <span>Wikipedia</span><span>,</span> the Free Encyclopedia.”</span> <a href="https://en.wikipedia.org/w/index.php?title=Woodbury_matrix_identity&amp;oldid=1253894787">https://en.wikipedia.org/w/index.php?title=Woodbury_matrix_identity&amp;oldid=1253894787</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

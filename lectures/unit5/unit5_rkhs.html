@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -198,7 +178,7 @@ window.Quarto = {
 </section>
 <section id="reading" class="level1">
 <h1>Reading</h1>
-<p>I will be taking readings from <span class="citation" data-cites="scholkopf:2002:learningwithkernels">Schölkopf and Smola (<a href="#ref-scholkopf:2002:learningwithkernels" role="doc-biblioref">2002</a>)</span> and <span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span>, both of which are available digitally from the UC Berkeley library website. I’ll also use <span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> Chapter 12.</p>
+<p>I will be taking readings from <span class="citation" data-cites="scholkopf:2002:learningwithkernels">@scholkopf:2002:learningwithkernels</span> and <span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span>, both of which are available digitally from the UC Berkeley library website. I’ll also use <span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> Chapter 12.</p>
 </section>
 <section id="roadmap" class="level1">
 <h1>Roadmap</h1>
@@ -258,7 +238,7 @@ b \left&lt;\mathcal{K}_{\,}(\cdot, z_p), \mathcal{K}_{\,}(z_n, z_m)\right&gt;_\m
 \end{aligned}
 \]</span></p>
 <p>where we note the appearance of the gram matrix, and where the final line relies on positive definitess of <span class="math inline">\(\mathcal{K}_{\,}\)</span>.</p>
-<p>The only real mathematical difficulty lies in the completion of this space, and in showing that these properties continue to hold for functions that are limits of finite sums of this form. They do — see Chapter 12 of <span class="citation" data-cites="wainwright:2019:high">Wainwright (<a href="#ref-wainwright:2019:high" role="doc-biblioref">2019</a>)</span> for these kinds of details. Presuming those results, we can define the Hilbert space <span class="math inline">\(\mathcal{H}\)</span> to be the space of all functions of the form <span class="math inline">\(f(\cdot; \boldsymbol{a}, \boldsymbol{Z}, K)\)</span>, plus their limits, all equipped with (and under) the inner product <span class="math inline">\(&lt;\cdot,\cdot&gt;_\mathcal{H}\)</span>.</p>
+<p>The only real mathematical difficulty lies in the completion of this space, and in showing that these properties continue to hold for functions that are limits of finite sums of this form. They do — see Chapter 12 of <span class="citation" data-cites="wainwright:2019:high">@wainwright:2019:high</span> for these kinds of details. Presuming those results, we can define the Hilbert space <span class="math inline">\(\mathcal{H}\)</span> to be the space of all functions of the form <span class="math inline">\(f(\cdot; \boldsymbol{a}, \boldsymbol{Z}, K)\)</span>, plus their limits, all equipped with (and under) the inner product <span class="math inline">\(&lt;\cdot,\cdot&gt;_\mathcal{H}\)</span>.</p>
 <section id="the-reproducing-property" class="level2">
 <h2 class="anchored" data-anchor-id="the-reproducing-property">The reproducing property</h2>
 <p>Why is this called a “reproducing kernel” Hilbert space? It’s because the inner product with the kernel “evaluates” or “reproduces” a function. For <span class="math inline">\(f\in \mathcal{H}\)</span>,</p>
@@ -317,7 +297,7 @@ f(\boldsymbol{z}; \boldsymbol{a}, \boldsymbol{Z}, K) ={}&amp;
 </section>
 <section id="the-representer-theorem" class="level1">
 <h1>The representer theorem</h1>
-<p>For simplicity, I will state a special case of a more general version of the representer theorem given in Theorem 4.2 in section 4.2 of <span class="citation" data-cites="scholkopf:2002:learningwithkernels">Schölkopf and Smola (<a href="#ref-scholkopf:2002:learningwithkernels" role="doc-biblioref">2002</a>)</span>.</p>
+<p>For simplicity, I will state a special case of a more general version of the representer theorem given in Theorem 4.2 in section 4.2 of <span class="citation" data-cites="scholkopf:2002:learningwithkernels">@scholkopf:2002:learningwithkernels</span>.</p>
 <p>Let <span class="math inline">\(\mathcal{H}\)</span> be an RKHS defined on functions from <span class="math inline">\(\mathcal{Z}\)</span> to the domain of the response variable <span class="math inline">\(y\)</span>, and let Let <span class="math inline">\(\mathscr{L}(\boldsymbol{z}_n, y_n, f(\cdot))\)</span> denote the loss for using <span class="math inline">\(f\in \mathcal{H}\)</span> to predict <span class="math inline">\(f(\boldsymbol{z}_n)\)</span> for <span class="math inline">\(y_n\)</span>. Importantly, we require that <span class="math inline">\(\mathscr{L}\)</span> depends on <span class="math inline">\(f(\cdot)\)</span> only through its evaluation <span class="math inline">\(f(\boldsymbol{z}_n)\)</span>, which is the case for every example we have seen in the class so far.</p>
 <p>Then the solution to the optimization problem</p>
 <p><span class="math display">\[
@@ -353,7 +333,7 @@ f(\boldsymbol{z}_m) ={}&amp;
 \end{aligned}
 \]</span></p>
 <p>The implication is incredible — it follows that any empirical risk minimizer with an RKHS norm regularizer admits an <span class="math inline">\(N\)</span>–dimensional solution, expressible in terms of <span class="math inline">\(\boldsymbol{a}\)</span>, despite being formally an optimization problem over infinite–dimensional space.</p>
-<p>As a brief note, Theorem 4.2 of <span class="citation" data-cites="scholkopf:2002:learningwithkernels">Schölkopf and Smola (<a href="#ref-scholkopf:2002:learningwithkernels" role="doc-biblioref">2002</a>)</span> points out that neither the L2 regularization nor empirical risk are essential to the above proof; all that matters is the monotonicity of the reguliarization term and the fact that the loss depends on <span class="math inline">\(f\)</span> only through evaluations <span class="math inline">\(f(\boldsymbol{z}_n)\)</span> at a finite number of observations.</p>
+<p>As a brief note, Theorem 4.2 of <span class="citation" data-cites="scholkopf:2002:learningwithkernels">@scholkopf:2002:learningwithkernels</span> points out that neither the L2 regularization nor empirical risk are essential to the above proof; all that matters is the monotonicity of the reguliarization term and the fact that the loss depends on <span class="math inline">\(f\)</span> only through evaluations <span class="math inline">\(f(\boldsymbol{z}_n)\)</span> at a finite number of observations.</p>
 </section>
 <section id="gaussian-processes" class="level1">
 <h1>Gaussian processes</h1>
@@ -369,7 +349,7 @@ f(\boldsymbol{z}_m) ={}&amp;
   \sigma^2 \boldsymbol{x}^\intercal{\boldsymbol{I}_{\,}}{P} \boldsymbol{x}' =  \sigma^2 \boldsymbol{x}^\intercal\boldsymbol{x}'.
 \end{aligned}
 \]</span></p>
-<p>More generally, one can show that the vector of function evaluations at any finite set of points is Gaussian with covariance given by <span class="math inline">\(\boldsymbol{X}\boldsymbol{X}^\intercal\)</span>, where <span class="math inline">\(\boldsymbol{X}\)</span> is the usual matrix with the observations <span class="math inline">\(\boldsymbol{x}_n\)</span> in the rows. We say that <span class="math inline">\(f\)</span> is a <em>Gaussian process</em> with mean function zero and covariance function given by <span class="math inline">\(\mathrm{Cov}_{\mathbb{P}_{\,}\left(f\right)}\left(f(\boldsymbol{x}), f(\boldsymbol{x}')\right) = \sigma^2 \boldsymbol{x}^\intercal\boldsymbol{x}'\)</span>. The details are beyond the scope of the present course, but, by Kolmogorov’s extension theorem, these finite–dimensional distributions are enough to fully characterize the infinite–dimensional distribution of <span class="math inline">\(f\)</span> (See, e.g., Chapter 2 of <span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span>).</p>
+<p>More generally, one can show that the vector of function evaluations at any finite set of points is Gaussian with covariance given by <span class="math inline">\(\boldsymbol{X}\boldsymbol{X}^\intercal\)</span>, where <span class="math inline">\(\boldsymbol{X}\)</span> is the usual matrix with the observations <span class="math inline">\(\boldsymbol{x}_n\)</span> in the rows. We say that <span class="math inline">\(f\)</span> is a <em>Gaussian process</em> with mean function zero and covariance function given by <span class="math inline">\(\mathrm{Cov}_{\mathbb{P}_{\,}\left(f\right)}\left(f(\boldsymbol{x}), f(\boldsymbol{x}')\right) = \sigma^2 \boldsymbol{x}^\intercal\boldsymbol{x}'\)</span>. The details are beyond the scope of the present course, but, by Kolmogorov’s extension theorem, these finite–dimensional distributions are enough to fully characterize the infinite–dimensional distribution of <span class="math inline">\(f\)</span> (See, e.g., Chapter 2 of <span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span>).</p>
 <p>We see in the finite–dimensional case that the covariance of our GP involved an inner product. And, indeed, we can extend this definition to use kernels instead of dot products, defining</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -383,32 +363,18 @@ f\sim{}&amp; \mathcal{GP}\left(\mu(\cdot), \mathcal{K}_{\,}(\cdot, \cdot)\right)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../assets/rw_fig4.1.png" class="img-fluid figure-img"></p>
-<figcaption><span class="citation" data-cites="rasmussen:2006:gpml">Rasmussen and Williams (<a href="#ref-rasmussen:2006:gpml" role="doc-biblioref">2006</a>)</span> Figure 4.1</figcaption>
+<figcaption><span class="citation" data-cites="rasmussen:2006:gpml">@rasmussen:2006:gpml</span> Figure 4.1</figcaption>
 </figure>
 </div>
 <p>In this, we can see that the Matern kernels result in “wigglier” draws than the RBF kernel, which corresponds to the <span class="math inline">\(\nu\rightarrow\infty\)</span> case in the image. Choosing a Matern class of kernels thus admits wigglier solutions than choosing an RBF kernel. One way to think of your kernel, from this perspective, is how close you want nearby evaluations of your learned function to be, absent information from the training set.</p>
 </section>
 <section id="references" class="level1">
-
-
+<h1>References</h1>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-esl:2009:hastie" class="csl-entry" role="listitem">
-Hastie, T., R. Tibshirani, and J. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference and Prediction</em>. 2nd ed. Springer.
-</div>
-<div id="ref-rasmussen:2006:gpml" class="csl-entry" role="listitem">
-Rasmussen, C., and C. Williams. 2006. <em>Gaussian Processes for Machine Learning</em>. Vol. 2. 3. MIT press Cambridge, MA.
-</div>
-<div id="ref-scholkopf:2002:learningwithkernels" class="csl-entry" role="listitem">
-Schölkopf, B., and A. Smola. 2002. <em>Learning with Kernels: <span>Support</span> Vector Machines, Regularization, Optimization, and Beyond</em>. MIT press.
-</div>
-<div id="ref-wainwright:2019:high" class="csl-entry" role="listitem">
-Wainwright, M. 2019. <em>High-Dimensional Statistics: <span>A</span> Non-Asymptotic Viewpoint</em>. Vol. 48. Cambridge university press.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

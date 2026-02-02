@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -222,7 +202,7 @@ out when you run cross--validation?  There are many choices:
 $\data_\test$.  It's easy to accidentally induce dependence, and you should
 be on guard against using the whole dataset to make some decisions, leading
 to poor estimates of test performance. -->
-<p>Here is a sylized version of an example from <span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> Chapter 7.10.3, which is easier to understand mathematically, but less realistic. Suppose we have binary <span class="math inline">\(y_n\)</span>, with 50/50 probability of being <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and linearly independent binary regressors <span class="math inline">\(\boldsymbol{x}_n \in \{0,1\}^{2^N}\)</span> which are totally independent of <span class="math inline">\(y_n\)</span>. Let’s use squared error for simplicity. Since the regressors and response are independent, the loss <span class="math inline">\(\mathscr{R}(\hat{f}) \ge \mathrm{Var}_{\,}\left(y^2\right) = 0.25\)</span>.</p>
+<p>Here is a sylized version of an example from <span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> Chapter 7.10.3, which is easier to understand mathematically, but less realistic. Suppose we have binary <span class="math inline">\(y_n\)</span>, with 50/50 probability of being <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and linearly independent binary regressors <span class="math inline">\(\boldsymbol{x}_n \in \{0,1\}^{2^N}\)</span> which are totally independent of <span class="math inline">\(y_n\)</span>. Let’s use squared error for simplicity. Since the regressors and response are independent, the loss <span class="math inline">\(\mathscr{R}(\hat{f}) \ge \mathrm{Var}_{\,}\left(y^2\right) = 0.25\)</span>.</p>
 <p>For any given regressor, the probability that <span class="math inline">\(x_{pn} = y_n\)</span> for all <span class="math inline">\(n\)</span> is given by <span class="math inline">\(0.5^N\)</span>, which is a very small number. However, if <span class="math inline">\(\boldsymbol{x}_n\)</span> is very high dimensional so that <span class="math inline">\(P \gg 0.5^N\)</span>, then with high probability there will be at least one <span class="math inline">\(p\)</span> with <span class="math inline">\(x_{pn} = y_n\)</span>.</p>
 <p>Suppose we first comb through the dataset to choose the regressor that best matches <span class="math inline">\(y_n\)</span>, choosing <span class="math inline">\(x_{pn}\)</span>. We then use cross–validation to estimate <span class="math inline">\(\mathscr{R}(\hat{\beta})\)</span>, where <span class="math inline">\(\hat{\beta}\)</span> is chosen using OLS. Our CV loss is zero, since <span class="math inline">\(x_{pn} = y_n\)</span> on all the datapoints, even the left–out set, despite the fact that we know the actual risk is <span class="math inline">\(0.25\)</span>.</p>
 <!-- What went wrong?  The problem is that we used the whole dataset
@@ -231,15 +211,10 @@ this kind of problem, always do the whole analysis from the start
 with every fresh train / test split. -->
 
 
-
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-esl:2009:hastie" class="csl-entry" role="listitem">
-Hastie, T., R. Tibshirani, and J. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference and Prediction</em>. 2nd ed. Springer.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

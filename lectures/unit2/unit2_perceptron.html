@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -187,7 +167,7 @@ window.Quarto = {
 </header>
 
 
-<p>This lecture follows <span class="citation" data-cites="hardt:2021:patterns">Hardt and Recht (<a href="#ref-hardt:2021:patterns" role="doc-biblioref">2021</a>)</span>, Chapter 3, with modifications.</p>
+<p>This lecture follows <span class="citation" data-cites="hardt:2021:patterns">@hardt:2021:patterns</span>, Chapter 3, with modifications.</p>
 <p>Suppose we have binary classification data <span class="math inline">\((\boldsymbol{x}_1,y_1),\dots,(\boldsymbol{x}_N,y_N)\)</span>, where <span class="math inline">\(y_n\in\{-1,1\}\)</span>, and we want to find a linear decision boundary: <span class="math display">\[
 \hat{y}_n=\text{sign}(\boldsymbol{x}_n^T\hat{\boldsymbol{\beta}}).
 \]</span> Such a vector <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> would be normal to a hyperplane that separates our predictions.</p>
@@ -230,7 +210,7 @@ y_n = \text{sign}(\boldsymbol{x}_n^T\boldsymbol{\beta})  \; \; \; \; \text{if an
 <h1>Convergence</h1>
 <p>We make two assumptions about the observations:</p>
 <ul>
-<li>Standardized: <span class="math inline">\(\|\boldsymbol{x}_n\|_2=1\)</span> (not actually needed, see <span class="citation" data-cites="hardt:2021:patterns">Hardt and Recht (<a href="#ref-hardt:2021:patterns" role="doc-biblioref">2021</a>)</span>. This just simplifies notation).</li>
+<li>Standardized: <span class="math inline">\(\|\boldsymbol{x}_n\|_2=1\)</span> (not actually needed, see <span class="citation" data-cites="hardt:2021:patterns">@hardt:2021:patterns</span>. This just simplifies notation).</li>
 <li>Linearly separable: there is a <strong>unit</strong> vector <span class="math inline">\(\boldsymbol{\beta}^*\)</span> which separates the data with margin <span class="math inline">\(\gamma\)</span>: <span class="math display">\[
 y_n\boldsymbol{x}_n^T\boldsymbol{\beta}^*&gt;\gamma&gt;0 \; \; \; \; \text{for all } \; \; n=1,\dots,N.
 \]</span> Now that the norm <span class="math inline">\(\|\boldsymbol{\beta}^*\|_2=1\)</span> is controlled, the margin <span class="math inline">\(\gamma\)</span> is meaningful. Any finite dataset that is linearly separable is linearly separable with a positive margin, so the appearance of the margin is no news. Its value, however, in particular the value of the largest margin <span class="math inline">\(\gamma\)</span> which can achieved on the data, is used to bound the amount of margin mistakes the algorithm will do in training, before it converges.</li>
@@ -258,7 +238,7 @@ y_n\boldsymbol{x}_n^T\boldsymbol{\beta}^*&gt;\gamma&gt;0 \; \; \; \; \text{for a
 <li>Standardized: <span class="math inline">\(\|\boldsymbol{x}\|_2=1\)</span> with probability one.</li>
 <li>Linear separability, with a margin: there is a unit vector <span class="math inline">\(\boldsymbol{\beta}^*\)</span> for which, with probability one, <span class="math display">\[
 y\boldsymbol{x}^T\beta^* &gt; \gamma &gt; 0.
-\]</span> This means that the same margin that applies to training data will apply to test data. This is slightly harsh and can be relaxed, see <span class="citation" data-cites="hardt:2021:patterns">Hardt and Recht (<a href="#ref-hardt:2021:patterns" role="doc-biblioref">2021</a>)</span>. The latter two assumptions are not required for the ULLN bound.</li>
+\]</span> This means that the same margin that applies to training data will apply to test data. This is slightly harsh and can be relaxed, see <span class="citation" data-cites="hardt:2021:patterns">@hardt:2021:patterns</span>. The latter two assumptions are not required for the ULLN bound.</li>
 </ul>
 <section id="via-ulln" class="level2">
 <h2 class="anchored" data-anchor-id="via-ulln">Via ULLN</h2>
@@ -353,14 +333,9 @@ Note
 \]</span> and the proof is concluded.</p>
 
 
-
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-hardt:2021:patterns" class="csl-entry" role="listitem">
-Hardt, M., and B. Recht. 2021. <span>“Patterns, Predictions, and Actions: <span>A</span> Story about Machine Learning.”</span> <em>arXiv Preprint arXiv:2102.05242</em>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

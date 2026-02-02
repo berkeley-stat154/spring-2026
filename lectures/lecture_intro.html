@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -213,7 +193,7 @@ window.Quarto = {
 <p>Beginning with these complex applications can obscure what we mean by “statistical prediction.” So let’s begin with a much simpler example.</p>
 <p>Every year, the US releases to the public a large data set containing information on births recorded in the country.</p>
 <p>This is a random sample of 1,000 cases from the 2014 data set.</p>
-<div id="b410a352" class="cell" data-execution_count="3">
+<div id="2ba8a9db" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -257,7 +237,7 @@ window.Quarto = {
 </section>
 <section id="plot-of-the-data" class="level1">
 <h1>Plot of the data</h1>
-<div id="878e244b" class="cell" data-execution_count="4">
+<div id="e1319d69" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -540,22 +520,17 @@ Statistics for ML
 <figcaption>LLM scaling</figcaption>
 </figure>
 </div>
-<p>From <span class="citation" data-cites="kaplan:2020:scaling">Kaplan et al. (<a href="#ref-kaplan:2020:scaling" role="doc-biblioref">2020</a>)</span> Figure 1. The scaling of loss with compute is real, but slow!</p>
+<p>From <span class="citation" data-cites="kaplan:2020:scaling">@kaplan:2020:scaling</span> Figure 1. The scaling of loss with compute is real, but slow!</p>
 <p>A reliance on brute force computation puts the power of ML in the hands of private and wealthy institutions.</p>
 <p>If we are to escape this fate, theory will almost certainly have to play a role.</p>
 </section>
 <section id="bibliography" class="level1">
-
-
+<h1>Bibliography</h1>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bibliography</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-kaplan:2020:scaling" class="csl-entry" role="listitem">
-Kaplan, J., S. McCandlish, T. Henighan, T. Brown, B. Chess, R. Child, S. Gray, A. Radford, J. Wu, and D. Amodei. 2020. <span>“Scaling Laws for Neural Language Models.”</span> <em>arXiv Preprint arXiv:2001.08361</em>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

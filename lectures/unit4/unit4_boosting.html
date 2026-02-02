@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -192,7 +172,7 @@ window.Quarto = {
 </section>
 <section id="reading" class="level1">
 <h1>Reading</h1>
-<p>The primary reading is <span class="citation" data-cites="isl:2021:gareth">Gareth et al. (<a href="#ref-isl:2021:gareth" role="doc-biblioref">2021</a>)</span> 8.2. The reading in <span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> section 8.7, 10.1–10.4 (GAMs and ADABoost) and especially 10.9-10.10 are also useful. These notes are intended only as a supplement to the primary reading.</p>
+<p>The primary reading is <span class="citation" data-cites="isl:2021:gareth">@isl:2021:gareth</span> 8.2. The reading in <span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> section 8.7, 10.1–10.4 (GAMs and ADABoost) and especially 10.9-10.10 are also useful. These notes are intended only as a supplement to the primary reading.</p>
 </section>
 <section id="additive-models" class="level1">
 <h1>Additive models</h1>
@@ -206,7 +186,7 @@ window.Quarto = {
 \hat{f}_{Lin}(\boldsymbol{x}) = \sum_{m=1}^M \beta_m x_m.
 \]</span></p>
 <p>Formally, we can think of the random forest as a linear model with (sub–optimal) coefficients <span class="math inline">\(\beta_m = 1/M\)</span>, and nonlinearly–transformed regressors given by the trees <span class="math inline">\(\hat{f}_m(\boldsymbol{x}; T_m)\)</span>, which are learned (greedily, sub–optimally) on the bootstrapped data.</p>
-<p>The similarity motivates a general class of models called “generalized additive models” (<span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> 9.1) which take the form</p>
+<p>The similarity motivates a general class of models called “generalized additive models” (<span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> 9.1) which take the form</p>
 <p><span class="math display">\[
 \hat{f}_{GAM}(\boldsymbol{x}) = \sum_{m=1}^M \theta_m \phi_m(\boldsymbol{x}),
 \]</span></p>
@@ -241,14 +221,14 @@ $$
 \argmin{T_m} \meann \loss(\phi(\xv_n; T_m), \y_n)
 $$
 
-for a single tree is computationally intractable. --> (<span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> 9.1 discusses some approaches that minimize the GAM model loss iteratively for non–tree structures on <span class="math inline">\(\phi\)</span>.) However, we can take a “leaf” from the CART playbook and peform <em>forward stagewise greedy minimization</em> of the GAM loss by fitting the <span class="math inline">\(\phi_m\)</span> incrementally, one at a time.</p>
+for a single tree is computationally intractable. --> (<span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> 9.1 discusses some approaches that minimize the GAM model loss iteratively for non–tree structures on <span class="math inline">\(\phi\)</span>.) However, we can take a “leaf” from the CART playbook and peform <em>forward stagewise greedy minimization</em> of the GAM loss by fitting the <span class="math inline">\(\phi_m\)</span> incrementally, one at a time.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="@esl:2009:hastie Algorithm 10.2:">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> Algorithm 10.2:
+<span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> Algorithm 10.2:
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -283,7 +263,7 @@ for a single tree is computationally intractable. --> (<span class="citation" da
 \hat{\theta}_m, \hat{\phi}_m := \underset{\theta, \phi}{\mathrm{argmin}}\, \frac{1}{N} \sum_{n=1}^N\mathscr{L}(\hat{f}_{m-1}(\boldsymbol{x}_n) + \theta \phi(\boldsymbol{x}_n), y_n)
 \]</span></p>
 <p>may not be easy.</p>
-<p>For example, consider classification trees decided by majority vote. There is no obvious notion of “residual” that you can train the next classification tree on. It happens that, with a particular form of exponential loss <span class="math inline">\(\mathscr{L}(f(\boldsymbol{x}), y) = \exp((1 - 2y) f(\boldsymbol{x}))\)</span>, the inner problem can be solved directly using an early algorithm known as “AdaBoost” after “Adaptive Boosting” (<span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> 10.4). However, for more general losses, an alternative formulation is needed, and a solution is provided by gradient boosting.</p>
+<p>For example, consider classification trees decided by majority vote. There is no obvious notion of “residual” that you can train the next classification tree on. It happens that, with a particular form of exponential loss <span class="math inline">\(\mathscr{L}(f(\boldsymbol{x}), y) = \exp((1 - 2y) f(\boldsymbol{x}))\)</span>, the inner problem can be solved directly using an early algorithm known as “AdaBoost” after “Adaptive Boosting” (<span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> 10.4). However, for more general losses, an alternative formulation is needed, and a solution is provided by gradient boosting.</p>
 </section>
 <section id="gradient-boosting" class="level2">
 <h2 class="anchored" data-anchor-id="gradient-boosting">Gradient boosting</h2>
@@ -321,18 +301,10 @@ g_n =\frac{\partial \mathscr{L}(\hat{f}_{m-1}(\boldsymbol{x}_n) + \delta_n, y_n)
 <p>It can readily be seen that this is a forward stepwise greedy approach which applies to any differentiable loss function.</p>
 
 
-
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-isl:2021:gareth" class="csl-entry" role="listitem">
-Gareth, J., W. Daniela, H. Trevor, and T. Robert. 2021. <em>An Introduction to Statistical Learning: <span>W</span>ith Applications in <span>Python</span></em>. Spinger.
-</div>
-<div id="ref-esl:2009:hastie" class="csl-entry" role="listitem">
-Hastie, T., R. Tibshirani, and J. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference and Prediction</em>. 2nd ed. Springer.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

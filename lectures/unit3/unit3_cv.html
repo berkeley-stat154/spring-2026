@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -202,7 +182,7 @@ window.Quarto = {
 </section>
 <section id="reading" class="level1">
 <h1>Reading</h1>
-<p>The primary reading for this section is <span class="citation" data-cites="isl:2021:gareth">Gareth et al. (<a href="#ref-isl:2021:gareth" role="doc-biblioref">2021</a>)</span> Chapter 5.1 and <span class="citation" data-cites="esl:2009:hastie">Hastie, Tibshirani, and Friedman (<a href="#ref-esl:2009:hastie" role="doc-biblioref">2009</a>)</span> chapter 7.10, for which these notes are just a small supplement.</p>
+<p>The primary reading for this section is <span class="citation" data-cites="isl:2021:gareth">@isl:2021:gareth</span> Chapter 5.1 and <span class="citation" data-cites="esl:2009:hastie">@esl:2009:hastie</span> chapter 7.10, for which these notes are just a small supplement.</p>
 </section>
 <section id="test-sets" class="level1">
 <h1>Test sets</h1>
@@ -266,7 +246,7 @@ Exercise
 </div>
 </div>
 <p>Of course, once we have an estimate <span class="math inline">\(\hat{\lambda}\)</span>, we can then take it and use the whole dataset as training with that particular <span class="math inline">\(\hat{\lambda}\)</span>.</p>
-<p>Note that we have divided the problem into “hyperparameters” (<span class="math inline">\(\lambda\)</span>) which are estimated with cross–validation, and “parameters” (<span class="math inline">\(\boldsymbol{\beta}\)</span>) which have been estimated with the training set. What is a parameter and what is a hyperparameter? In one sense, “hyperparameters are just vibes” (“In Defense of Typing Monkeys,” <span class="citation" data-cites="recht:2025:argmin">Recht (<a href="#ref-recht:2025:argmin" role="doc-biblioref">2025</a>)</span>); often our hyperparameters are extremely expressive. However, typical practice treats parameters as high–dimensional and capable of overfitting, and hyperparameters as a low to moderate–dimensional set of levers for controlling overfitting.</p>
+<p>Note that we have divided the problem into “hyperparameters” (<span class="math inline">\(\lambda\)</span>) which are estimated with cross–validation, and “parameters” (<span class="math inline">\(\boldsymbol{\beta}\)</span>) which have been estimated with the training set. What is a parameter and what is a hyperparameter? In one sense, “hyperparameters are just vibes” (“In Defense of Typing Monkeys,” <span class="citation" data-cites="recht:2025:argmin">@recht:2025:argmin</span>); often our hyperparameters are extremely expressive. However, typical practice treats parameters as high–dimensional and capable of overfitting, and hyperparameters as a low to moderate–dimensional set of levers for controlling overfitting.</p>
 <section id="putting-it-together" class="level2">
 <h2 class="anchored" data-anchor-id="putting-it-together">Putting it together</h2>
 <p>The <a href="https://scikit-learn.org/stable/modules/cross_validation.html">scikit webpage has this picture</a>:</p>
@@ -279,21 +259,10 @@ Exercise
 <p>Note that there are two different places where the map <span class="math inline">\(\mathcal{D}\mapsto \hat{f}\)</span> happens (during and after hyperparameter selection), and two different uses of test sets (hyperparameter evaluation and “final” evaluation).</p>
 
 
-
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-isl:2021:gareth" class="csl-entry" role="listitem">
-Gareth, J., W. Daniela, H. Trevor, and T. Robert. 2021. <em>An Introduction to Statistical Learning: <span>W</span>ith Applications in <span>Python</span></em>. Spinger.
-</div>
-<div id="ref-esl:2009:hastie" class="csl-entry" role="listitem">
-Hastie, T., R. Tibshirani, and J. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference and Prediction</em>. 2nd ed. Springer.
-</div>
-<div id="ref-recht:2025:argmin" class="csl-entry" role="listitem">
-Recht, B. 2025. <span>“Argmin Blog.”</span> <a href="https://www.argmin.net/">https://www.argmin.net/</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -198,7 +178,7 @@ window.Quarto = {
 </section>
 <section id="reading" class="level1">
 <h1>Reading</h1>
-<p>This is a simplified exposition of <span class="citation" data-cites="van:2000:asymptotic">Van der Vaart (<a href="#ref-van:2000:asymptotic" role="doc-biblioref">2000</a>)</span> Example 19.7. One can find a different perspective on the same class of problems in <span class="citation" data-cites="keener:2010:theoretical">Keener (<a href="#ref-keener:2010:theoretical" role="doc-biblioref">2010</a>)</span> Chapter 9. A more advanced approach that is finite-sample but limited to bounded functions can be found in <span class="citation" data-cites="wainwright:2019:high">Wainwright (<a href="#ref-wainwright:2019:high" role="doc-biblioref">2019</a>)</span> Chapter 4.</p>
+<p>This is a simplified exposition of <span class="citation" data-cites="van:2000:asymptotic">@van:2000:asymptotic</span> Example 19.7. One can find a different perspective on the same class of problems in <span class="citation" data-cites="keener:2010:theoretical">@keener:2010:theoretical</span> Chapter 9. A more advanced approach that is finite-sample but limited to bounded functions can be found in <span class="citation" data-cites="wainwright:2019:high">@wainwright:2019:high</span> Chapter 4.</p>
 </section>
 <section id="uniform-laws-of-large-numbers-for-smooth-function-classes" class="level1">
 <h1>Uniform laws of large numbers for smooth function classes</h1>
@@ -259,7 +239,7 @@ N &gt; N_k \Rightarrow
 <section id="a-covering" class="level2">
 <h2 class="anchored" data-anchor-id="a-covering">A covering</h2>
 <p>The previous trick cannot be applied when <span class="math inline">\(\mathcal{G}\)</span> is infinite — as is the case in any of our examples, which are parameterized by a continuous parameter and so contain an infinite class of functions.</p>
-<p>A classical approach is to finite a finite “cover” of <span class="math inline">\(\mathcal{G}\)</span>. There are many ways to do so, but here we will focus on a particular example (<span class="citation" data-cites="van:2000:asymptotic">Van der Vaart (<a href="#ref-van:2000:asymptotic" role="doc-biblioref">2000</a>)</span> Example 19.7). Suppose that: <span class="math inline">\(\mathcal{G}= \{ f(\cdot; \theta) \textrm{ for some }\theta \in \Omega \}\)</span>. Assume:</p>
+<p>A classical approach is to finite a finite “cover” of <span class="math inline">\(\mathcal{G}\)</span>. There are many ways to do so, but here we will focus on a particular example (<span class="citation" data-cites="van:2000:asymptotic">@van:2000:asymptotic</span> Example 19.7). Suppose that: <span class="math inline">\(\mathcal{G}= \{ f(\cdot; \theta) \textrm{ for some }\theta \in \Omega \}\)</span>. Assume:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Integrable Lipschitz Assumption">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -426,21 +406,10 @@ M(z) = 2 \left(
 \]</span> which in this case gives the same bound as the more tedious computation above.</p>
 
 
-
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-keener:2010:theoretical" class="csl-entry" role="listitem">
-Keener, R. 2010. <em>Theoretical Statistics: <span>Topics</span> for a Core Course</em>. Springer Science &amp; Business Media.
-</div>
-<div id="ref-van:2000:asymptotic" class="csl-entry" role="listitem">
-Van der Vaart, A. 2000. <em>Asymptotic Statistics</em>. Vol. 3. Cambridge university press.
-</div>
-<div id="ref-wainwright:2019:high" class="csl-entry" role="listitem">
-Wainwright, M. 2019. <em>High-Dimensional Statistics: <span>A</span> Non-Asymptotic Viewpoint</em>. Vol. 48. Cambridge university press.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
