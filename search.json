@@ -471,7 +471,7 @@
     "href": "assignments/assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "Homework assignemnts\nPlease submit all assignments as a pdf on Gradescope.\nPartial solutions may be provided after the homework is due. Note that, when solutions are provided, they are guides for knowing whether you got the answer wrong or not, but not necessarily complete solutions. Specifically, the provided solutions may have less exposition and justification than would be expected in a quiz.\n\n\nAssignment 0 (review). Due Monday, February 9th (11am)",
+    "text": "Homework assignemnts\nPlease submit all assignments as a pdf on Gradescope.\nPartial solutions may be provided after the homework is due. Note that, when solutions are provided, they are guides for knowing whether you got the answer wrong or not, but not necessarily complete solutions. Specifically, the provided solutions may have less exposition and justification than would be expected in a quiz.\n\n\nAssignment 0 (review). Due Monday, February 9th (11am)\nAssignment 1. Due Friday, March 6th (11am)",
     "crumbs": [
       "Assignments"
     ]
@@ -955,5 +955,19 @@
     "title": "Lab 4 Presentation - First Challenge Round-Up",
     "section": "4.1 Load data",
     "text": "4.1 Load data\n\nimport numpy as np\n\nX_train = np.load(r\"../../datasets/linreg/X_train.npy\")\ny_train = np.load(r\"../../datasets/linreg/y_train.npy\")\n\nX_train.shape, y_train.shape\n\n((8000, 10), (8000,))"
+  },
+  {
+    "objectID": "labs/linreg-challenge/roundup.html#in-summary-their-strategy-was-to",
+    "href": "labs/linreg-challenge/roundup.html#in-summary-their-strategy-was-to",
+    "title": "Lab 4 Presentation - First Challenge Round-Up",
+    "section": "21.1 In summary, their strategy was to",
+    "text": "21.1 In summary, their strategy was to\n1. Generate a lot of features and then; \n2. Prune using ridge regression."
+  },
+  {
+    "objectID": "labs/linreg-challenge/roundup.html#in-detail-they-used-the-following-features",
+    "href": "labs/linreg-challenge/roundup.html#in-detail-they-used-the-following-features",
+    "title": "Lab 4 Presentation - First Challenge Round-Up",
+    "section": "21.2 In detail, they used the following features",
+    "text": "21.2 In detail, they used the following features\n\n21.2.1 Base features\n\nOriginal features (X)\nPolynomial features (X^2)\nSquare root of absolute values (sign(X) * sqrt(|X|))\nLogarithmic transformations (log(1 + |X|))\nStable reciprocal transformations (1 / (1 + |X|))\n\n\n\n21.2.2 Saturating transforms\n\nHyperbolic tangent (tanh(X))\nSoftsign (X / (1 + |X|))\nArctangent (arctan(X))\n\n\n\n21.2.3 Trigonometric features\n\nSine and cosine of the features (sin(X), cos(X))\nHigher-order trigonometric terms (sin(2X), cos(2X))\n\n\n\n21.2.4 Hinge features\n\nHinge functions:\n\nmax(0, X - t) and max(0, t - X)\nthresholds t ∈ {-2, -1, 0, 1, 2}\n\n\n\n\n21.2.5 Radial basis functions (RBFs)\n\nGaussian-like features centered at specific values:\n\nexp(-0.5 * ((X - c) / s)^2)\nwhere c are centers and s are scales\n\n\n\n\n21.2.6 Global statistics\n\nRow-wise: norms, max, mean, standard deviation, and sum of squares of each row in X\n\n\n\n21.2.7 Pairwise interactions\n\nElementwise products of selected pairs of features:\n\nX[:, i] * X[:, j]\n\n\n\n\n21.2.8 Nonlinear interactions\n\nLimited combinations of nonlinear transformations of feature pairs, such as:\n\nlog1p(|X_i|) * X_j\ntanh(X_i) * X_j\n\n\n\n\n21.2.9 Random projections\n\nRandomly projected features:\n\nZ = X @ R, where R is a random matrix\n\nIncludes interactions and polynomial terms of the projections\n\nThere was too much code to paste into this document but their submission was\nMSE: 0.5260523711603559\nQuestion: What did the runner-up got right and wrong?\nFinal remark: automatically generating features may work well on datasets with little noise"
   }
 ]
