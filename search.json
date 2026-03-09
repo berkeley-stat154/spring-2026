@@ -367,6 +367,62 @@
     "text": "You are given three files:\n\nX_train.npy\ny_train.npy\nX_test.npy\n\nYou may download and read them like this:\nimport numpy as np\nimport urllib.request\n\nurllib.request.urlretrieve('https://stat154.berkeley.edu/spring-2026/datasets/linreg/X_train.npy', '{path}/X_train.npy')    \nurllib.request.urlretrieve('https://stat154.berkeley.edu/spring-2026/datasets/linreg/X_test.npy', '{path}/X_test.npy')\nurllib.request.urlretrieve('https://stat154.berkeley.edu/spring-2026/datasets/linreg/y_train.npy', '{path}/y_train.npy')\n\nX_train = np.load(\"{path}/X_train.npy\")\nX_test = np.load(\"{path}/X_test.npy\")\ny_train = np.load(\"{path}/y_train.npy\")\nThere are two data sets, (X_train, y_train) and (X_test, y_test), which are independent and identically distributed. However, I have hidden y_test from you. Your task is to make the best predictions of y_test possible based on the training data and on X_test.\n\n1 How to submit predictions\nYou will submit a binary .npy file containing a numpy array (one-dimensional), whose length is the same as the number of rows in X_test, that will comprise the predictions of y_test. You can save an array to file like this:\nimport numpy as np\n\nnp.save(\"pred_{codename}.npy\", pred)\nThe name of the file should be \"pred_{codename}.npy\" where {codename} is a secret codename of your group’s choosing, that you will be able to use later to identify your submission in the leaderboard. The file, alongside your code, should be submitted to GradeScope.\n\n\n2 How your predictions will be scored\nYour predictions will be compared against the real y_test using average squared error:\n\\[\n\\text{your loss} = \\frac{1}{N}\\sum_{n=1}^N (y_n - \\text{pred}_n)^2.\n\\]\nA leaderboard will be published with every group’s codename alongside its loss on the test set, ranked from low to high. No other identifying information will be shared, so no other student will be able know your rank on the leaderboard. The leaderboard is for your own benefit! The group with the lowest test loss is the winner.\n\n\n3 Allowed methods to use\nYou are permitted to use only methods which you have learned in the lectures or labs, or that are adjacent to them. This includes, for example, ordinary least squares and feature engineering. Any use of significantly more advanced learning algorithms might result in disqualification and zero grade.\n\n\n4 How you will be graded\nA submission reflecting honest effort will receive full grade. Your rank on the leaderboard will not factor into your grade in any way.\n\n\n5 Timeline\nThe challenge will last two consecutive lab sessions, starting from the lab session on Feb 2nd and ending at the end of the lab session on Feb 9th. You will submit predictions at two times:\n\nOne hour after the end of the lab session on Feb 2nd.\nOne hour after the end of the lab session on Feb 9th.\n\nA leaderboard will be published after each submission deadline and also on the morning of Friday Feb 6th as a checkpoint.\nYou are not required to work on the challenge outside lab sessions, however it is encouraged. This is for your benefit! The more time you spend working with data you will find you get more out of this course.\n\n\n6 GOOD LUCK AND HAVE FUN!"
   },
   {
+    "objectID": "labs/cross_val/lab6_presentation.html",
+    "href": "labs/cross_val/lab6_presentation.html",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "",
+    "text": "Methods for Cross validation fails for time series data\nDifferent approaches to fold selection\nExpanding window vs. sliding window\nApplying time-aware CV to the West Nile Virus challenge"
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#an-example-of-leakage",
+    "href": "labs/cross_val/lab6_presentation.html#an-example-of-leakage",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "3.1 An example of leakage",
+    "text": "3.1 An example of leakage\nSuppose mosquito trap counts from August 15th are in the validation fold, and counts from August 14th and August 16th are in the training fold. The model can effectively “see” the future when predicting on the validation fold, because the training observations from August 16th are temporally adjacent and highly correlated.\nThis can lead to overly optimistic CV error estimates: the model looks much better on the CV folds than it will on true future data."
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#approach-1-plain-random-cv",
+    "href": "labs/cross_val/lab6_presentation.html#approach-1-plain-random-cv",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "4.1 Approach 1: Plain (Random) CV",
+    "text": "4.1 Approach 1: Plain (Random) CV\nAssign observations to folds uniformly at random, with no regard for time ordering.\nshuffle all observations randomly\nsplit into K equal folds\nfor each fold k:\n    train on all folds except k\n    validate on fold k\nProblem: Training folds contain observations from the future relative to the validation fold. The model leaks information from the future, and CV error is too optimistic."
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#approach-2-block-cv",
+    "href": "labs/cross_val/lab6_presentation.html#approach-2-block-cv",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "4.2 Approach 2: Block CV",
+    "text": "4.2 Approach 2: Block CV\nSort observations by time and split into \\(K\\) contiguous blocks. Use each block as a validation fold in turn, training on all remaining blocks.\nsort observations by time\nsplit into K contiguous blocks: B1, B2, ..., BK\nfor each block Bk:\n    train on all blocks except Bk\n    validate on Bk\nImprovement: Folds are contiguous in time, so temporally adjacent observations are less often split between train and validation.\nRemaining problem: When block \\(B_k\\) is the validation fold, the training set includes blocks from the future relative to \\(B_k\\). This still allows future leakage."
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#approach-3-block-past-only-cv",
+    "href": "labs/cross_val/lab6_presentation.html#approach-3-block-past-only-cv",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "4.3 Approach 3: Block + Past-Only CV",
+    "text": "4.3 Approach 3: Block + Past-Only CV\nLike Block CV, split into \\(K\\) contiguous blocks. But when evaluating on block \\(B_k\\), train only on blocks \\(B_1, \\dots, B_{k-1}\\) (the past). Never use future data for training.\nsort observations by time\nsplit into K contiguous blocks: B1, B2, ..., BK\nfor k = 2, 3, ..., K:\n    train on B1, B2, ..., B(k-1)\n    validate on Bk\nWhy this is correct: Every validation fold simulates predicting the future using only the past. This is the closest CV analogue to the actual deployment scenario. This strategy is implemented in scikit-learn as TimeSeriesSplit."
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#expanding-window",
+    "href": "labs/cross_val/lab6_presentation.html#expanding-window",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "6.1 Expanding window",
+    "text": "6.1 Expanding window\nTrain on all available past data up to block \\(B_k\\).\nfor k = 2, 3, ..., K:\n    train on B1 ∪ B2 ∪ ... ∪ B(k-1)   ← grows with each fold\n    validate on Bk\nThe training set expands with each fold. This is the default behavior of TimeSeriesSplit.\nPros:\n\nUses all available past data for training.\nA reasonable choice when older data is likely still relevant.\n\nCons:\n\nEarly folds train on much less data than later folds, so fold-level errors are not directly comparable to one another.\nTraining time grows with each fold."
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#sliding-window",
+    "href": "labs/cross_val/lab6_presentation.html#sliding-window",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "6.2 Sliding window",
+    "text": "6.2 Sliding window\nTrain on a fixed-size window of the most recent \\(W\\) blocks before \\(B_k\\).\nfor k = 2, 3, ..., K:\n    train on B(k-W), ..., B(k-1)        ← fixed size, slides forward\n    validate on Bk\nThe training window slides forward, always keeping the same number of blocks.\nPros:\n\nCan be a better fit when the data is non-stationary and older observations are less relevant to the future.\nTraining set size is constant across folds, making fold-level errors more directly comparable.\n\nCons:\n\nDiscards historical data that may still be informative.\nIntroduces an additional hyperparameter \\(W\\) (the window size) that must itself be chosen."
+  },
+  {
+    "objectID": "labs/cross_val/lab6_presentation.html#which-should-you-use",
+    "href": "labs/cross_val/lab6_presentation.html#which-should-you-use",
+    "title": "Lab 6 Presentation - Cross Validation for Time Series Data",
+    "section": "6.3 Which should you use?",
+    "text": "6.3 Which should you use?\n\n\n\n\n\n\n\n\n\nExpanding window\nSliding window\n\n\n\n\nData is stationary\nPreferred\nUnnecessary data discarded\n\n\nData is non-stationary\nOld data may hurt\nPreferred\n\n\nSmall dataset\nPreferred (use all data)\nMay leave too little for training\n\n\nLarge dataset\nCan be slow\nMore computationally efficient\n\n\n\nWhen in doubt, the expanding window is a reasonable default. Use the sliding window when you have reason to believe the relationship between features and target has shifted over time."
+  },
+  {
     "objectID": "labs/cross_val/lab5_presentation.html#train-error",
     "href": "labs/cross_val/lab5_presentation.html#train-error",
     "title": "Lab 5 Presentation - Cross Validation",
@@ -539,6 +595,13 @@
     "text": "1 Download data and run a gradient boosting machine\nThe data may be found here:\n\nX_cv_train.csv\ny_cv_train.csv\nX_cv_test.csv\ny_cv_test.csv\n\nThese data were gathered in order to predict the future presence of mosquitos carrying the West Nile Virus in various sampling stations located around Chicago. Information about the time of year, location of the sampling station as well results from past samples at the same location were collected and engineered into the dataset that you have.\nThe exercise for you today is to tune hyperparameters of a gradient boosting machine using cross validation. Here is a code snippet showing how you can train a model and compute loss.\nimport lightgbm as lgb\nimport numpy as np\nimport pandas as pd\n\ndef logloss(y, pred):\n    return -np.mean(y * np.log(pred) + (1-y) * np.log(1-pred))\n\nX_train = pd.read_csv(\"X_cv_train.csv\")\nX_train.Species = X_train.Species.astype(\"category\")\nX_test = pd.read_csv(\"X_cv_test.csv\")\nX_test.Species = X_test.Species.astype(\"category\")\ny_train = pd.read_csv(\"y_cv_train.csv\").squeeze()\ny_test = pd.read_csv(\"y_cv_test.csv\").squeeze()\n\nmodel = lgb.LGBMClassifier(verbosity=-1)\nmodel.fit(X_train, y_train, categorical_feature=\"Species\")\npred = model.predict_proba(X_test)[:,1]\nlogloss(y_test, pred), logloss(y_test, y_train.mean())\n\n\n2 Optimize a single parameter\nFind optimal values of the hyperparameter min_child_samples:\n\nBy minimizing train error.\nBy minimizing validation error, after making a single train-validation split.\nBy minimizing cross validation error, with different numbers of folds.\n\nMake sure to follow the instructions for non-IID data!\nThen:\n\nCompare the test error of each method.\nCompare the optimized values of min_child_samples obtained by each method. Explain the differences in test error in terms of the differences in min_child_samples.\nCheck what happens if the instructions for non-IID data are not followed.\n\n\n\n3 Optimizing multiple parameters\nRepeat the process above, this time optimizing three parameters together: min_child_samples, n_estimators and learning_rate.\n\n\n4 Further improvements\nTry to improve the model further by implementing greedy feature selection based on cross validation, or by optimizing further hyperparameters.\n\n\n5 Submission\nSubmit your code on gradescope until March 3rd 23:59 PM."
   },
   {
+    "objectID": "labs/cross_val/lab6_exercise.html",
+    "href": "labs/cross_val/lab6_exercise.html",
+    "title": "Lab 6 Exercise - Cross Validation Competition",
+    "section": "",
+    "text": "You are given two files:\n\nX_cv_competition.csv\ny_cv_competition.csv\n\nThis is the same West Nile Virus dataset from the previous lab, except that the train and test have been combined into a single dataset, and a Date column has been added in order to help in partitioning the data into folds. The data are from the years 2007, 2009 and 2011.\nYou may download and read them like this:\nimport pandas as pd\n\nX = pd.read_csv(f\"{path}/X_cv_competition.csv\")\ny = pd.read_csv(f\"{path}/y_cv_competition.csv\").squeeze()\nYour goal is to find optimal hyperparametrs for lightgbm using cross validation that minds the fact that there is a time element in the data.\n\n1 How to submit hyperparameters\nYou will submit a JSON file containing a dictionary with the hyperparameters you optimized. You should also submit your code. You can save the JSON file like this:\nimport json\n\nparams = {\n    \"min_child_samples\": 20,\n    \"learning_rate\": 0.1,\n    \"n_estimators\": 100,\n}\n\noutput_fn = f\"params_{codename}.json\"\nwith open(f\"{path}/{output_fn}\", \"w\") as f:\n    f.write(json.dumps(params))\nThe name of the json file should be \"params_{codename}.json\" where {codename} is a secret codename of your group’s choosing, that you will be able to use later to identify your submission in the leaderboard. The file, alongside your code, should be submitted to GradeScope.\n\n\n2 How your hyperparameters will be scored\nI will train a lightgbm model on the data (X,y) using the hyperparameters you submitted, then evaluate the model on a held-out set comprising data from the year 2013 from June to September. I will run this code:\nimport lightgbm as lgb\nimport numpy as np\nimport pandas as pd\nimport json\n\ndef logloss(y, pred):\n    return -np.mean(y * np.log(pred) + (1-y) * np.log(1-pred))\n\nparams_fn = f\"params_{codename}.json\"\nwith open(f\"{path}/{params_fn}\") as f:\n    params = json.loads(f.read())\n\nX = pd.read_csv(f\"{path}/X_cv_competition.csv\").drop(\"Date\", axis=1)\nX.Species = X.Species.astype(\"category\")\nX_holdout = pd.read_csv(f\"{path}/X_cv_holdout.csv\").drop(\"Date\", axis=1)\nX_holdout.Species = X_holdout.Species.astype(\"category\")\ny = pd.read_csv(f\"{path}/y_cv_competition.csv\").squeeze()\ny_holdout = pd.read_csv(f\"{path}/y_cv_holdout.csv\").squeeze()\n\nmodel = lgb.LGBMClassifier(**params)\nmodel.fit(X, y, categorical_feature=\"Species\")\npred = model.predict_proba(X_holdout)[:,1]\nlogloss(y_holdout, pred)\nYour model should not use Date as a feature. As you can see, I’m passing your hyperparameters to LGBMClassifier’s constructor. You are free to optimize any and all of the hyperparameters that the constructor accepts.\nA leaderboard will be published with every group’s codename alongside its loss on the holdout set, ranked from low to high. No other identifying information will be shared, so no other student will be able know your rank on the leaderboard. The leaderboard is for your own benefit! The group with the lowest test loss is the winner.\n\n\n3 How you will be graded\nA submission reflecting honest effort will receive full grade. Your rank on the leaderboard will not factor into your grade in any way, except that the students in the top two performing groups after the competition has ended (that is, with lowest test loss) will receive an bonus point to their final grade (out of 100).\n\n\n4 Submission timeline\nYou should submit both your hyperparameters in a .json file and your code by 1 hour after the lab section is over.\n\n\n5 Some helpful information about lightgbm\nHere are some significant hyperparameters to look at:\n\n\n\n\n\n\n\n\n\nHyperparameter\nRelates to\nMeaning\nComplexity when increased\n\n\n\n\nnum_leaves\nTree\nNumber of leaves in each tree\nIncreases\n\n\nmax_depth\nTree\nDepth of each tree\nIncreases\n\n\nlearning_rate\nBoosting\nStep size\nIncreases\n\n\nn_estimators\nBoosting\nNumber of steps\nIncreases\n\n\nmin_child_samples\nTree\nMinimum samples in leaf\nDecreases\n\n\nsubsample, subsample_freq\nBoosting\nSubsample rows at each tree, for ensembling\n\n\n\n\n\n\n6 Submission\n\n\n7 GOOD LUCK AND HAVE FUN!"
+  },
+  {
     "objectID": "labs/labs.html",
     "href": "labs/labs.html",
     "title": "Labs",
@@ -549,8 +612,8 @@
     ]
   },
   {
-    "objectID": "labs/labs.html#lab-1",
-    "href": "labs/labs.html#lab-1",
+    "objectID": "labs/labs.html#lab-1-jan.-26th",
+    "href": "labs/labs.html#lab-1-jan.-26th",
     "title": "Labs",
     "section": "",
     "text": "Lab 1 Intro - Logistics + Coding for ML\nLab 1 Exercise - Coding for ML + Linear Regression Basics\nLab 1 Exercise - Solutions",
@@ -559,41 +622,51 @@
     ]
   },
   {
-    "objectID": "labs/labs.html#lab-2",
-    "href": "labs/labs.html#lab-2",
+    "objectID": "labs/labs.html#lab-2-feb.-2nd",
+    "href": "labs/labs.html#lab-2-feb.-2nd",
     "title": "Labs",
-    "section": "Lab 2",
-    "text": "Lab 2\nLab 2 Intro - Data Visualization for Linear Modeling\nLab 2 Exercise - Linear Regression Challenge",
+    "section": "Lab 2 (Feb. 2nd)",
+    "text": "Lab 2 (Feb. 2nd)\nLab 2 Intro - Data Visualization for Linear Modeling\nLab 2 Exercise - Linear Regression Challenge",
     "crumbs": [
       "Labs"
     ]
   },
   {
-    "objectID": "labs/labs.html#lab-3",
-    "href": "labs/labs.html#lab-3",
+    "objectID": "labs/labs.html#lab-3-feb.-9th",
+    "href": "labs/labs.html#lab-3-feb.-9th",
     "title": "Labs",
-    "section": "Lab 3",
-    "text": "Lab 3\nContinuation of Lab 2.",
+    "section": "Lab 3 (Feb. 9th)",
+    "text": "Lab 3 (Feb. 9th)\nContinuation of Lab 2.",
     "crumbs": [
       "Labs"
     ]
   },
   {
-    "objectID": "labs/labs.html#lab-4",
-    "href": "labs/labs.html#lab-4",
+    "objectID": "labs/labs.html#lab-4-feb.-23rd",
+    "href": "labs/labs.html#lab-4-feb.-23rd",
     "title": "Labs",
-    "section": "Lab 4",
-    "text": "Lab 4\nLab 4 - Linear Regression Challenge Round-up",
+    "section": "Lab 4 (Feb. 23rd)",
+    "text": "Lab 4 (Feb. 23rd)\nLab 4 - Linear Regression Challenge Round-up",
     "crumbs": [
       "Labs"
     ]
   },
   {
-    "objectID": "labs/labs.html#lab-5",
-    "href": "labs/labs.html#lab-5",
+    "objectID": "labs/labs.html#lab-5-mar.-2nd",
+    "href": "labs/labs.html#lab-5-mar.-2nd",
     "title": "Labs",
-    "section": "Lab 5",
-    "text": "Lab 5\nLab 5 Intro - Cross Validation\nLab 5 Exercise - Cross Validation Part I",
+    "section": "Lab 5 (Mar. 2nd)",
+    "text": "Lab 5 (Mar. 2nd)\nLab 5 Intro - Cross Validation Part I\nLab 5 Exercise - Cross Validation Part I",
+    "crumbs": [
+      "Labs"
+    ]
+  },
+  {
+    "objectID": "labs/labs.html#lab-6-mar.-9th",
+    "href": "labs/labs.html#lab-6-mar.-9th",
+    "title": "Labs",
+    "section": "Lab 6 (Mar. 9th)",
+    "text": "Lab 6 (Mar. 9th)\nLab 6 Intro - Cross Validation Part II\nLab 6 Exercise - Cross Validation Part II",
     "crumbs": [
       "Labs"
     ]
