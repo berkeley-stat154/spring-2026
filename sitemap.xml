@@ -2,210 +2,218 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_bias_variance_example.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat154.berkeley.edu/spring-2026/labs/neural_networks/lab11_challenge.html</loc>
+    <lastmod>2026-04-19T21:04:33.621Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/linreg-challenge/presentation.html</loc>
-    <lastmod>2026-04-13T20:27:15.255Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.594Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/coding_warmup/solution.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.585Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/datasets/west_nile_virus/create_cv_data.html</loc>
-    <lastmod>2026-04-13T20:27:15.237Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.577Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/schedule.html</loc>
-    <lastmod>2026-04-13T20:27:15.290Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.635Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit5/unit5_validkernels.html</loc>
-    <lastmod>2026-04-13T20:27:15.290Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.635Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit5/unit5_kerneltrick.html</loc>
-    <lastmod>2026-04-13T20:27:15.290Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.635Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit4/unit4_cart.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit4/unit4_bagging.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_ulln.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_generalization.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_cv.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit2/unit2_svm.html</loc>
-    <lastmod>2026-04-13T20:27:15.285Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.630Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit2/unit2_false_positives_negatives.html</loc>
-    <lastmod>2026-04-13T20:27:15.285Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.630Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit1/unit1_splines.html</loc>
-    <lastmod>2026-04-13T20:27:15.284Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.629Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit1/unit1_ols.html</loc>
-    <lastmod>2026-04-13T20:27:15.284Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.629Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/slides.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/linalg_review.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/lecture_intro.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/linreg-challenge/exercise.html</loc>
-    <lastmod>2026-04-13T20:27:15.253Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.593Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/cross_val/lab6_presentation.html</loc>
-    <lastmod>2026-04-13T20:27:15.246Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.585Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/cross_val/lab5_presentation.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.585Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/coding_warmup/coding_for_ml_intro.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.585Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/classification/lab8_exercise.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.584Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/grading.html</loc>
-    <lastmod>2026-04-13T20:27:15.240Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.580Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/course_policies.html</loc>
-    <lastmod>2026-04-13T20:27:15.209Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.549Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/assignments/assignments.html</loc>
-    <lastmod>2026-04-13T20:27:15.206Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.546Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/datasets/data.html</loc>
-    <lastmod>2026-04-13T20:27:15.209Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.549Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/index.html</loc>
-    <lastmod>2026-04-13T20:27:15.244Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.584Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/coding_warmup/coding_for_ml_exercise.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.584Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/cross_val/lab5_exercise.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.585Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/cross_val/lab6_exercise.html</loc>
-    <lastmod>2026-04-13T20:27:15.245Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.585Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/labs.html</loc>
-    <lastmod>2026-04-13T20:27:15.248Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.588Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/key_concepts.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/lectures.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/optimization.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit1/unit1_l1l2.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.626Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit1/unit1_ols_matrix_notation.html</loc>
-    <lastmod>2026-04-13T20:27:15.284Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.629Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit2/unit2_classification_loss.html</loc>
-    <lastmod>2026-04-13T20:27:15.285Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.629Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit2/unit2_perceptron.html</loc>
-    <lastmod>2026-04-13T20:27:15.285Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.630Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_biasvar.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_cv_cautionary.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_regret_decomposition.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit3/unit3_vc_dimension.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit4/unit4_boosting.html</loc>
-    <lastmod>2026-04-13T20:27:15.289Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit5/unit5_kernel_smoothing.html</loc>
-    <lastmod>2026-04-13T20:27:15.290Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/lectures/unit5/unit5_rkhs.html</loc>
-    <lastmod>2026-04-13T20:27:15.290Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.635Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/license.html</loc>
-    <lastmod>2026-04-13T20:27:15.290Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.635Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/datasets/linreg/winner.html</loc>
-    <lastmod>2026-04-13T20:27:15.233Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.573Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/classification/lab10_roundup.html</loc>
-    <lastmod>2026-04-13T20:27:15.244Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.584Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/cross_val/lab7_roundup.html</loc>
-    <lastmod>2026-04-13T20:27:15.248Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.588Z</lastmod>
   </url>
   <url>
     <loc>https://stat154.berkeley.edu/spring-2026/labs/linreg-challenge/roundup.html</loc>
-    <lastmod>2026-04-13T20:27:15.281Z</lastmod>
+    <lastmod>2026-04-19T21:04:33.620Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stat154.berkeley.edu/spring-2026/labs/neural_networks/lab11_tutorial.html</loc>
+    <lastmod>2026-04-19T21:04:33.625Z</lastmod>
   </url>
 </urlset>
